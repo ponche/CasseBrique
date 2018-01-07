@@ -5,6 +5,24 @@
 #include <SFML/Graphics.hpp>
 #include <list>
 
+#include "Brique.h"
+#include "OptionBrique.h"
+
+
+class BriqueWithOption : public Brique
+{
+protected:
+    std::list<OptionBrique*> m_listeOptions;
+
+public:
+
+
+    BriqueWithOption(sf::Vector2f position, effetBrique effetObjet = vide);
+
+    void update();
+    void addOption(OptionBrique* option);
+};
+
 
 
 

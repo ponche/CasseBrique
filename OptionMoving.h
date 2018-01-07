@@ -6,6 +6,7 @@
 
 #include "OptionBrique.h"
 
+
 class OptionMoving : public OptionBrique
 {
 protected:
@@ -20,6 +21,7 @@ public:
     ~OptionMoving() ;
 
     void update() ;
+    void start() ;
 };
 
 

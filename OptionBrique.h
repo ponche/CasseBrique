@@ -14,17 +14,14 @@ protected:
     // Pointeur de la brique
     Brique *m_pointeurBrique ;
 
-
-
-
-
-
 public:
     OptionBrique() ;
     ~OptionBrique() ;
     // fonction
     void setBrique(Brique *pointeur) ;
+
     virtual void update() = 0 ; // méthode virtuel
+    virtual void start() = 0 ;
 
 
 

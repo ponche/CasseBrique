@@ -7,11 +7,11 @@
 OptionBrique::OptionBrique()
 : m_pointeurBrique(0)
 {
-    // creaion de option brique
+    // constructeur de optionBrique
 }
 OptionBrique::~OptionBrique()
 {
-    // Destructeur de la brique
+    // Destructeur de OptionBrique
 }
 
 void OptionBrique::setBrique(Brique *pointeur)

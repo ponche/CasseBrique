@@ -30,5 +30,6 @@ void BriqueWithOption::addOption(OptionBrique *option)
 {
     m_listeOptions.push_back(option);
     option->setBrique(this) ;
+    option->start();
 }
 

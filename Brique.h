@@ -18,7 +18,7 @@ enum effetBrique
 };
 class Brique : public Element
 {
-protected:
+public:
     sf::RectangleShape m_rectangle;
     int m_resitance;
     int m_effetObjet;

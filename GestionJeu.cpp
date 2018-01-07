@@ -8,6 +8,9 @@
 #include "AfficheurScore.h"
 #include "Ball.h"
 
+#include "BriqueWithOptions.h"
+#include "OptionMoving.h"
+
 using namespace sf;
 
 GestionJeu::GestionJeu(sf::RenderWindow &fenetre)
@@ -54,7 +57,7 @@ void GestionJeu::boucleSystem()
                 m_fenetre->close();
             if(m_event.type == sf::Event::MouseMoved)
             {
-                m_palet.update();
+                //m_palet.update();
             }
             if(m_event.type == sf::Event::KeyPressed)
             {
@@ -136,8 +139,12 @@ void GestionJeu::placementBrique()
     m_listeBrique.push_back(new Brique(Vector2f(350, 350), diminuerPalet));
     m_listeBrique.push_back(new Brique(Vector2f(400, 400)));
     m_listeBrique.push_back(new Brique(Vector2f(450, 450),diminuerPalet));
-    m_listeBrique.push_back(new BriqueMoving(Vector2f(200, 50)));
+    //m_listeBrique.push_back(new BriqueMoving(Vector2f(200, 50)));
     m_listeBrique.push_back(new BriqueRegenerator(Vector2f(500, 500)));
+    BriqueWithOption *maNouvelleBrique =  new BriqueWithOption(Vector2f(200, 50)) ;
+    maNouvelleBrique->addOption(new OptionMoving) ;
+    m_listeBrique.push_back(maNouvelleBrique) ;
+
 
     ajouterBall();
 }

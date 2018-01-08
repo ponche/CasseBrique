@@ -32,13 +32,13 @@ void Palet::diminuerPalet(float diminution)
 void Palet::update()
 {
     // problème de cast !!!
-    sf::Vector2i positionSouris = sf::Mouse::getPosition(*m_fenetre);
+    sf::Vector2f positionSouris = (sf::Vector2f) sf::Mouse::getPosition(*m_fenetre);
     sf::Vector2f positionPalet;
     positionPalet.x = positionSouris.x;
     if(!m_inversionCommand)
-        positionPalet.x = sf::Mouse::getPosition(*m_fenetre).x;
+        positionPalet.x = positionSouris.x;
     else
-        positionPalet.x = m_fenetre->getSize().x - sf::Mouse::getPosition(*m_fenetre).x;
+        positionPalet.x = m_fenetre->getSize().x - positionSouris.x;
     positionPalet.y = 600; // Number magic
     setPositionPalet(positionPalet);
     m_rectangle.setPosition(positionPalet);
@@ -51,27 +51,8 @@ sf::Drawable& Palet::getShape()
     return m_rectangle;
 }
 
-/*void Palet::catapultage()
-{
-    if(m_ballShooting)
-    {
-        // On lance la balle
-        m_ballShooting->lancerBall();
-        m_ballShooting = 0 ;
-    }
 
-}
-void Palet::preparationLanceur(Ball &boule)
-{
-    if(m_ballShooting)
-    {
-        // On lance la balle
-        m_ballShooting->lancerBall();
-    }
-    m_ballShooting = &boule ;
 
-}
-*/
 void Palet::reverseCommande()
 {
     m_inversionCommand = m_inversionCommand? false : true ;

@@ -3,7 +3,7 @@ my  Brick breaker
 
 ## Issues : 
 
-* problème du palet quand il est en mode inversion commande, il disparait sur la gauche
+* nothing
 
 
 ------------------------------------------------------------------------------------------
@@ -35,6 +35,6 @@ my  Brick breaker
 ## Todo : 
 * créer plusieurs niveaux 
 * faire un systeme de chargement de niveau (via un fichier externe) 
-* mettre en place le pattern decorator sur les Briques 
+* cree des brique special  
 * réactiver les bonus/malus vitesse ball. (désactivé a cause du mutli-ball) 
 

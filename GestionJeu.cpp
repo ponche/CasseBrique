@@ -10,6 +10,7 @@
 #include "BriqueWithOptions.h"
 #include "OptionMoving.h"
 #include "OptionSolid.h"
+#include "OptionAcceleratorBall.h"
 
 using namespace sf;
 
@@ -144,6 +145,7 @@ void GestionJeu::placementBrique()
     BriqueWithOption *maNouvelleBrique =  new BriqueWithOption(Vector2f(200, 50)) ;
     maNouvelleBrique->addOption(new OptionMoving) ;
     maNouvelleBrique->addOption(new OptionSolid) ;
+    maNouvelleBrique->addOption(new OptionAcceleratorBall) ;
     m_listeBrique.push_back(maNouvelleBrique) ;
 
 

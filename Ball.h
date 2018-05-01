@@ -13,6 +13,7 @@ protected:
     sf::CircleShape m_cercle;
     float m_vitesse;
     float m_vitesseMax;
+    float m_rayonBall ;
     sf::Vector2f m_direction;
     bool m_ballLancer;
     bool m_isLive;
@@ -31,6 +32,9 @@ public:
 
     void augmenterVitesse(float augmentation = 1);
     void diminuerVitesse(float diminution = 1);
+
+    void grosirBall(float augmentation = 1);
+    void reduireBall(float diminution = 1) ;
 
     sf::Drawable& getShape();
 

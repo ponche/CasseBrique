@@ -5,7 +5,7 @@
 
 Palet::Palet(sf::RenderWindow &fenetre)
 {
-    m_rectangle.setSize(sf::Vector2f(200, 10));
+    m_rectangle.setSize(sf::Vector2f(200, 10)); // Magic Number à corrigé
     m_rectangle.setOrigin(m_rectangle.getSize().x / 2, 10);
     m_rectangle.setFillColor(sf::Color::Green);
     m_rectangle.setPosition(250, 600);
@@ -39,12 +39,10 @@ void Palet::update()
         positionPalet.x = positionSouris.x;
     else
         positionPalet.x = m_fenetre->getSize().x - positionSouris.x;
-    positionPalet.y = 600; // Number magic
+    positionPalet.y = 600 ; // Number magic
     setPositionPalet(positionPalet);
     m_rectangle.setPosition(positionPalet);
 
-    // test
-    std::cout << "Palet : " << positionPalet.x <<  " Souris : " << positionSouris.x << std::endl ;
 }
 sf::Drawable& Palet::getShape()
 {

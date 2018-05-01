@@ -17,7 +17,7 @@ protected:
 public:
 
 
-    BriqueWithOption(sf::Vector2f position, effetBrique effetObjet = vide);
+    BriqueWithOption(sf::Vector2f position, effetBrique effetObjet = VIDE);
 
     void update();
     void addOption(OptionBrique* option);

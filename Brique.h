@@ -10,11 +10,11 @@
 //Enumération des objet brique
 enum effetBrique
 {
-    vide,
-    diminuerPalet,
-    augmenterPalet,
-    augmenterVitesse,
-    diminuerVitesse
+    VIDE,
+    DIMINUER_PALET,
+    AUGMENTER_PALET,
+    AUGMENTER_VITESSE,
+    DIMINUER_VITESSE
 };
 class Brique : public Element
 {
@@ -24,7 +24,7 @@ public:
     int m_effetObjet;
 
 public:
-    Brique(sf::Vector2f position, effetBrique effetObjet =  vide);
+    Brique(sf::Vector2f position, effetBrique effetObjet =  VIDE);
 
     virtual ~Brique();
     void destructionBrique();

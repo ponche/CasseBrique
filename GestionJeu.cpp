@@ -5,7 +5,6 @@
 
 #include "GestionJeu.h"
 #include "ObjetSpecial.h"
-#include "AfficheurScore.h"
 #include "Ball.h"
 
 #include "BriqueWithOptions.h"
@@ -15,11 +14,11 @@
 using namespace sf;
 
 GestionJeu::GestionJeu(sf::RenderWindow &fenetre)
-: m_palet(fenetre), m_afficheurScores(fenetre), m_ballShotting(0)
+: m_palet(fenetre), m_ballShotting(0)
 {
     m_fenetre = &fenetre;
     m_niveau = 1;
-    m_axePaletY = 725 ; // à Ramplancer par un calcul
+    m_axePaletY = 725 ; // Magic Number à remplacer
     m_axeDeleteBallY = 500; //a remplacer par un  calcul
 
 }
@@ -119,8 +118,8 @@ void GestionJeu::boucleSystem()
 
         m_fenetre->clear(sf::Color::Blue);
         dessinerJeu();
-        m_afficheurScores.update();
-        m_afficheurScores.dessineScores();
+        /*m_afficheurScores.update();
+        m_afficheurScores.dessineScores();*/
         //m_afficheurScores.dessineScores();
         m_fenetre->display();
     }
@@ -130,18 +129,18 @@ void GestionJeu::boucleSystem()
 void GestionJeu::placementBrique()
 {
 
-    m_listeBrique.push_back(new Brique(Vector2f(0, 0), diminuerPalet));
-    m_listeBrique.push_back(new Brique(Vector2f(50, 50), augmenterPalet));
+    m_listeBrique.push_back(new Brique(Vector2f(0, 0), DIMINUER_PALET));
+    m_listeBrique.push_back(new Brique(Vector2f(50, 50), AUGMENTER_PALET));
     m_listeBrique.push_back(new Brique(Vector2f(100, 100)));
     m_listeBrique.push_back(new Brique(Vector2f(150, 150)));
     m_listeBrique.push_back(new Brique(Vector2f(200, 200)));
-    m_listeBrique.push_back(new Brique(Vector2f(250, 250), diminuerPalet));
-    m_listeBrique.push_back(new Brique(Vector2f(300, 300),augmenterPalet));
-    m_listeBrique.push_back(new Brique(Vector2f(350, 350), diminuerPalet));
+    m_listeBrique.push_back(new Brique(Vector2f(250, 250), DIMINUER_PALET));
+    m_listeBrique.push_back(new Brique(Vector2f(300, 300),AUGMENTER_PALET));
+    m_listeBrique.push_back(new Brique(Vector2f(350, 350), DIMINUER_PALET));
     m_listeBrique.push_back(new Brique(Vector2f(400, 400)));
-    m_listeBrique.push_back(new Brique(Vector2f(450, 450),diminuerPalet));
-    //m_listeBrique.push_back(new BriqueMoving(Vector2f(200, 50)));
-    m_listeBrique.push_back(new BriqueRegenerator(Vector2f(500, 500)));
+    m_listeBrique.push_back(new Brique(Vector2f(450, 450),DIMINUER_PALET));
+
+    m_listeBrique.push_back(new BriqueRegenerator(Vector2f(500, 500))); // BriqueRegenerator a supprimer
     BriqueWithOption *maNouvelleBrique =  new BriqueWithOption(Vector2f(200, 50)) ;
     maNouvelleBrique->addOption(new OptionMoving) ;
     maNouvelleBrique->addOption(new OptionSolid) ;
@@ -154,7 +153,7 @@ void GestionJeu::placementBrique()
 
 void GestionJeu::gameOver()
 {
-    // Partie perdu affichage des scores ou retour menu
+
     GestionScores::enleverVie();
     if(GestionScores::getVies() < 1)
         m_fenetre->close();
@@ -189,7 +188,6 @@ void GestionJeu::testCollisionMur(Ball &boule)
     }
     if(boule.getCercle().getPosition().y < boule.getCercle().getRadius())
     {
-        //std::cout << "collision en haut" << std::endl;
         if(boule.getDirection().y < 0)
         {
             sf::Vector2f direction = boule.getDirection();
@@ -201,7 +199,6 @@ void GestionJeu::testCollisionMur(Ball &boule)
     {
         if(boule.getDirection().y > 0)
         {
-           // Destruction de la ball
 
 
         }
@@ -254,7 +251,6 @@ void GestionJeu::testCollisionPalet(Ball &boule)
     if(boxBall.intersects(boxPalet))
     {
         //Collision
-        //std::cout << "collision ball avec le palet " << std::endl;
         float positionBallX = boule.getCercle().getPosition().x;
         float positionPalletX = m_palet.getRectange().getPosition().x;
         float largeurPalet = m_palet.getRectange().getSize().x;
@@ -263,9 +259,6 @@ void GestionJeu::testCollisionPalet(Ball &boule)
 
         float distanceY = -1 * sqrt(1 - (distanceX * distanceX));
         boule.setDirection(sf::Vector2f(distanceX, distanceY));
-        //std::cout << "direction x : " << distanceX << std::endl;
-        //std::cout << "direction y : " << distanceY << std::endl;
-
 
     }
 }
@@ -324,7 +317,7 @@ void GestionJeu::testCollisionObjectSpecial()
     {
         ObjetSpecial *leObjet = *it;
         leObjet->update();
-             // verification collision avec le palet ( a deplacer dans une fonction )
+
         sf::FloatRect boxPalet = m_palet.getRectange().getGlobalBounds();
         sf::FloatRect boxObjet = leObjet->getCercle().getGlobalBounds();
         if(boxPalet.intersects(boxObjet))
@@ -334,16 +327,16 @@ void GestionJeu::testCollisionObjectSpecial()
             // Application de l'effet
             switch(leObjet->getEffets())
             {
-            case diminuerPalet :
+            case DIMINUER_PALET :
                 m_palet.diminuerPalet(60);
                 break;
-            case augmenterPalet :
+            case AUGMENTER_PALET :
                 m_palet.agrandirPalet(10);
                 break;
-            case augmenterVitesse :
+            case AUGMENTER_VITESSE :
                 //m_ball.augmenterVitesse(4); DANGER m_ball n'existe plus
                 break;
-            case diminuerVitesse :
+            case DIMINUER_VITESSE :
                 //m_ball.diminuerVitesse(2);  DANGER m_ball n'existe plus
                 break;
             default:
@@ -383,7 +376,7 @@ void GestionJeu::catapultageBall()
 }
 void GestionJeu::preparationLanceur(Ball &laBall)
 {
-    // si une ball est sur le palet
+    // si une ball est sur le palet on la lance
     if(m_ballShotting)
     {
         m_ballShotting->lancerBall();

@@ -14,7 +14,7 @@ protected:
     sf::Time m_timeRegenerator;
 
 public:
-    BriqueRegenerator(sf::Vector2f position, effetBrique effetObjet =  vide ,  sf::Vector2f taille = sf::Vector2f(100, 50), sf::Color couleur = sf::Color::White );
+    BriqueRegenerator(sf::Vector2f position, effetBrique effetObjet =  VIDE ,  sf::Vector2f taille = sf::Vector2f(100, 50), sf::Color couleur = sf::Color::White );
     virtual ~BriqueRegenerator();
 
     //Fonctions divers

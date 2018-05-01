@@ -7,8 +7,8 @@ Ball::Ball(sf::RenderWindow &fenetre, Palet &lePalet)
 : m_pPalet(&lePalet)
 {
     m_cercle.setFillColor(sf::Color::Red);
-    m_cercle.setRadius(10);
-    m_cercle.setPosition(400, 300); // Inutiles ?
+    m_rayonBall = 10 ;
+    m_cercle.setRadius(m_rayonBall);
     m_cercle.setOrigin(m_cercle.getRadius() / 2, m_cercle.getRadius() / 2);
     m_fenetre = &fenetre;
     m_vitesseMax = 27 ;
@@ -26,7 +26,7 @@ void Ball::update()
     if(!m_ballLancer)
     {
         sf::Vector2f position;
-        position.y = 575; // MagicNumber juste au dessus du pallet
+        position.y = 575;
         position.x =  m_pPalet->getPositionPalet().x;
         m_cercle.setPosition(position);
     }
@@ -67,6 +67,16 @@ void Ball::diminuerVitesse(float diminution)
 sf::Drawable& Ball::getShape()
 {
     return m_cercle;
+}
+void Ball::grosirBall(float augmentation)
+{
+    m_cercle.setRadius(m_cercle.getRadius() + augmentation) ;
+    m_cercle.setOrigin(m_cercle.getRadius() / 2, m_cercle.getRadius() / 2);
+}
+void Ball::reduireBall(float diminution)
+{
+   m_cercle.setRadius(m_cercle.getRadius() - diminution) ;
+   m_cercle.setOrigin(m_cercle.getRadius() / 2, m_cercle.getRadius() / 2);
 }
 
 //Setter

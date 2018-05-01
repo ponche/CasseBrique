@@ -18,7 +18,7 @@ protected:
 
 public:
     //Constructeur
-    BriqueMoving(sf::Vector2f laPosition, effetBrique leEffetObjet =  vide ,  sf::Vector2f laTaille = sf::Vector2f(100, 50), sf::Color laCouleur = sf::Color::White);
+    BriqueMoving(sf::Vector2f laPosition, effetBrique leEffetObjet =  VIDE ,  sf::Vector2f laTaille = sf::Vector2f(100, 50), sf::Color laCouleur = sf::Color::White);
 
     ~BriqueMoving();
 

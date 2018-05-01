@@ -8,7 +8,7 @@ Brique::Brique(sf::Vector2f position, effetBrique effetObjet )
 : m_resitance(1), m_effetObjet(effetObjet)
 {
     std::cout << "creation de brique" << std::endl;
-    m_rectangle = sf::RectangleShape(sf::Vector2f(100, 50));
+    m_rectangle = sf::RectangleShape(sf::Vector2f(100, 50)); // Magic Number
     m_rectangle.setPosition(position);
 
 }

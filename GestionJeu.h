@@ -10,7 +10,6 @@
 #include "Palet.h"
 #include "ObjetSpecial.h"
 #include "GestionScores.h"
-#include "AfficheurScore.h"
 #include "BriqueMoving.h"
 #include "BriqueRegenerator.h"
 class GestionJeu
@@ -20,7 +19,7 @@ protected:
 
     Palet m_palet;
     // a supprimer par la suite quand gestion ball sera fait
-    AfficheurScores m_afficheurScores;
+    //AfficheurScores m_afficheurScores;
     bool m_jeuEnAction;
     sf::Event m_event;
     sf::Clock m_horloge;

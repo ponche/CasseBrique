@@ -16,7 +16,7 @@ public:
     ~OptionSolid() ;
 
     void start() ;
-    void update() ;
+
 };
 
 

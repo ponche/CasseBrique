@@ -32,4 +32,35 @@ void BriqueWithOption::addOption(OptionBrique *option)
     option->setBrique(this) ;
     option->start();
 }
+void BriqueWithOption::collision(Ball &laBall)
+{
+    // Appel de la fonction parent
+    Brique::collision(laBall) ;
+
+    // informe les plugins de la collision
+    for(std::list<OptionBrique*>::iterator it = m_listeOptions.begin(); it != m_listeOptions.end(); it++)
+    {
+        OptionBrique *plugin = *it;
+        plugin->collision(laBall) ;
+
+    }
+
+
+
+}
+
+void BriqueWithOption::destructionBrique()
+{
+    // Appel de la fonction parent
+    Brique::destructionBrique();
+
+    // informe les plugins de la destruction
+    for(std::list<OptionBrique*>::iterator it = m_listeOptions.begin(); it != m_listeOptions.end(); it++)
+    {
+        OptionBrique *plugin = *it;
+        plugin->destruction() ;
+
+    }
+
+}
 

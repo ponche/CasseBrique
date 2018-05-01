@@ -39,8 +39,5 @@ void OptionMoving::update()
 
     }
 }
-void OptionMoving::start()
-{
 
-}
 

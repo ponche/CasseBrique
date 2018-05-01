@@ -3,6 +3,7 @@
 
 #include "Brique.h"
 #include "GestionScores.h"
+#include "Ball.h"
 
 Brique::Brique(sf::Vector2f position, effetBrique effetObjet )
 : m_resitance(1), m_effetObjet(effetObjet)
@@ -21,16 +22,14 @@ Brique::~Brique()
 }
 
 
-void Brique::collision()
+void Brique::collision(Ball &laBall)
 {
     m_resitance--;
-    //changement de la couleur
 
+}
+void Brique::destructionBrique()
+{
 
-    if(m_resitance == 0)
-    {
-        //destructi
-    }
 }
 void Brique::update()
 {

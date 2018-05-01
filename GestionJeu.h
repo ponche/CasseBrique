@@ -10,7 +10,6 @@
 #include "Palet.h"
 #include "ObjetSpecial.h"
 #include "GestionScores.h"
-#include "BriqueMoving.h"
 #include "BriqueRegenerator.h"
 class GestionJeu
 {

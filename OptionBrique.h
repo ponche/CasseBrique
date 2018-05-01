@@ -21,8 +21,10 @@ public:
     // fonction
     void setBrique(Brique *pointeur) ;
 
-    virtual void update() = 0 ; // méthode virtuel
-    virtual void start() = 0 ;
+    virtual void update() ; // méthode virtuel
+    virtual void start()  ;
+    virtual void collision(Ball &boule) ;
+    virtual void destruction() ;
 
 
 

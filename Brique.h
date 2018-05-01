@@ -6,6 +6,7 @@
 #include "GestionScores.h"
 #include "ObjetSpecial.h"
 #include "Element.h"
+#include "Ball.h"
 
 //Enumération des objet brique
 enum effetBrique
@@ -27,9 +28,9 @@ public:
     Brique(sf::Vector2f position, effetBrique effetObjet =  VIDE);
 
     virtual ~Brique();
-    void destructionBrique();
+    virtual void destructionBrique();
 
-    virtual void collision();
+    virtual void collision(Ball &laBalle);
     virtual void update();
 
     sf::Drawable& getShape();

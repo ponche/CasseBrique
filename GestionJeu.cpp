@@ -224,12 +224,13 @@ void GestionJeu::testCollisionBrique(Ball &boule)
                 direction.x *= -1;
             boule.setDirection(direction);
 
-            laBrique->collision();
+            laBrique->collision(boule);
             if(laBrique->getResistance() <= 0)
             {
                 std::cout << "EffetsObjet = " << laBrique->getEffetObjet() << std::endl ;
                 if(laBrique->getEffetObjet() != 0)
                 {
+                    laBrique->destructionBrique() ;
                     //laBrique->destructionBrique();
                     m_listeObjet.push_back(new ObjetSpecial(laBrique->getEffetObjet(), laBrique->getRectangle().getPosition()));
                     // a deplacer dans la fonction Brique ;

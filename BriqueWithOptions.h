@@ -7,6 +7,7 @@
 
 #include "Brique.h"
 #include "OptionBrique.h"
+#include "Ball.h"
 
 
 class BriqueWithOption : public Brique
@@ -21,6 +22,8 @@ public:
 
     void update();
     void addOption(OptionBrique* option);
+    void collision(Ball &laBall) ;
+    void destructionBrique() ;
 };
 
 

@@ -21,7 +21,7 @@ public:
     ~OptionMoving() ;
 
     void update() ;
-    void start() ;
+
 };
 
 

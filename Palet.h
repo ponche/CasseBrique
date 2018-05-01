@@ -25,8 +25,6 @@ public:
     void update();
     sf::Drawable& getShape();
 
-    //void catapultage();
-    //void preparationLanceur(Ball &boule);
     void reverseCommande();
 
     //Setter

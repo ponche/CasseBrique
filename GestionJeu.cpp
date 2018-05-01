@@ -25,7 +25,7 @@ GestionJeu::GestionJeu(sf::RenderWindow &fenetre)
 void GestionJeu::dessinerJeu()
 {
     m_fenetre->draw(m_palet.getRectange());
-    //m_fenetre->draw(m_ball.getCercle());
+
     for(std::list<Ball*>::iterator it = m_listeBall.begin(); it != m_listeBall.end(); it++)
     {
         Ball *laBall = *it;
@@ -78,7 +78,7 @@ void GestionJeu::boucleSystem()
                 if(m_event.key.code == sf::Keyboard::Numpad9)
                     m_palet.agrandirPalet();
                 if(m_event.key.code == sf::Keyboard::Numpad5)
-                    std::cout << "nbElement : " << Element::getElement() << std::endl ;
+                    std::cout << "nbElement : " << Element::getNbElement() << std::endl ;
 
             }
 

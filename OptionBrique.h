@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Brique.h"
+#include "Ball.h"
 
 
 class OptionBrique
@@ -22,6 +23,8 @@ public:
 
     virtual void update() = 0 ; // méthode virtuel
     virtual void start() = 0 ;
+
+
 
 
 

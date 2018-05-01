@@ -17,7 +17,7 @@ Element::~Element()
 
 void Element::update() {} ;
 
-int Element::getElement()
+int Element::getNbElement()
 {
     return nbElement;
 }

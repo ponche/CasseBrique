@@ -68,5 +68,5 @@ int Brique::getResistance()
 }
 int Brique::getEffetObjet()
 {
-    return m_effetObjet;
+    return m_effetObjet ;
 }

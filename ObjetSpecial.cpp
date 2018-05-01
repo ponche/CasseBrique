@@ -8,10 +8,12 @@ ObjetSpecial::ObjetSpecial(int effets, sf::Vector2f position)
 : m_vitesse(2) , m_effets(effets), m_isLive(true)
 {
     m_cercle.setRadius(8);
-    //m_cercle.setFillColor(sf::Color::Magenta);
+
     m_cercle.setPosition(position);
     // couleur en fonction du bonus ou malus
     int bonusMalus = m_effets % 2 ;
+
+    // Amelioration sur le desgin des bonus malus.
     if(bonusMalus == 0)
     {
         //c'est un bonus couleur vert

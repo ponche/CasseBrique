@@ -29,7 +29,7 @@ public:
     virtual ~Brique();
     void destructionBrique();
 
-    void collision();
+    virtual void collision();
     virtual void update();
 
     sf::Drawable& getShape();

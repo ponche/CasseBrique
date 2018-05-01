@@ -17,7 +17,7 @@ public:
 
     virtual sf::Drawable& getShape() = 0 ;
 
-    static int getElement();
+    static int getNbElement();
 
     bool getIsLive();
     void destructionElement();

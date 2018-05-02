@@ -11,6 +11,7 @@
 #include "OptionMoving.h"
 #include "OptionSolid.h"
 #include "OptionAcceleratorBall.h"
+#include "OptionGrossirBall.h"
 
 using namespace sf;
 
@@ -46,6 +47,7 @@ void GestionJeu::dessinerJeu()
         m_fenetre->draw(leObjet->getCercle());
 
     }
+    // Amelioration possible avec la liste Eleemnt
 }
 void GestionJeu::boucleSystem()
 {
@@ -119,9 +121,7 @@ void GestionJeu::boucleSystem()
 
         m_fenetre->clear(sf::Color::Blue);
         dessinerJeu();
-        /*m_afficheurScores.update();
-        m_afficheurScores.dessineScores();*/
-        //m_afficheurScores.dessineScores();
+
         m_fenetre->display();
     }
     //return 0;
@@ -145,7 +145,8 @@ void GestionJeu::placementBrique()
     BriqueWithOption *maNouvelleBrique =  new BriqueWithOption(Vector2f(200, 50)) ;
     maNouvelleBrique->addOption(new OptionMoving) ;
     maNouvelleBrique->addOption(new OptionSolid) ;
-    maNouvelleBrique->addOption(new OptionAcceleratorBall) ;
+    //maNouvelleBrique->addOption(new OptionAcceleratorBall) ;
+    maNouvelleBrique->addOption(new OptionGrossirBall) ;
     m_listeBrique.push_back(maNouvelleBrique) ;
 
 

@@ -38,3 +38,8 @@ my  Brick breaker
 * cree des brique special  
 * réactiver les bonus/malus vitesse ball. (désactivé a cause du mutli-ball) 
 
+## Dependences : 
+
+* SFML 2.4.2 
+
+
